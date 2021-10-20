@@ -1,0 +1,21 @@
+GET http://localhost:8000/hotels
+###
+GET http://localhost:8000/hotels/616ec664823320496aa09d9a
+###
+POST http://localhost:8000/hotels
+Content-Type: application/json
+
+
+###
+PATCH  http://localhost:8000/hotels/616ec664823320496aa09d9a
+Content-Type: application/json
+
+{   "name": "Concorde",
+    "address" : "40 Rue du Commandant René Mouchotte, 75014 Paris",
+    "totalChamber" : 120
+}
+
+
+###
+DELETE http://localhost:8000/hotels/616e81768cf06710c68df173
+###
