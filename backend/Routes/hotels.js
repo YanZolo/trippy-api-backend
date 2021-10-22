@@ -2,6 +2,7 @@ const express = require('express');
 const Route = express.Router()
 const Hotel = require('../Models/hotelsModel')
 
+
 Route.get('/', async (req, res) => {
     try {
         const hotels = await Hotel.find()
@@ -50,7 +51,7 @@ Route.patch('/:id', getHotelData, async (req, res) => {
     }
     if (req.body.totalChamber != null) {
         res.hotel.totalChamber = req.body.totalChamber
-        
+
     }
     try {
         const updateHotel = await res.hotel.save()
@@ -73,13 +74,13 @@ Route.delete('/:id', getHotelData, async (req, res) => {
 });
 
 async function getHotelData(req, res, next) {
-  let hotel;
+    let hotel;
     try {
-       hotel = await Hotel.findById(req.params.id)
+        hotel = await Hotel.findById(req.params.id)
         if (hotel === null) {
             res.status(404).json({ message: 'Cannot find hotel' })
         }
-    } catch (err){
+    } catch (err) {
         res.status(500).json({ message: err.message })
     }
     res.hotel = hotel
